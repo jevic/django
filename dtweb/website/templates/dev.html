@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"> 
+    <title>DT 运维组</title>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+{% extends "base.html" %}
+{% block title %} DT服务集群 {% endblock %}
+
+{% block content %}
+<!--
+<h1><div class="text" style=" text-align:center;"> DT 应用部服务集群</div></h1>
+-->
+<div class="text-center collapse navbar-collapse"> 
+                <th class="active"><a href="#"><h1>DT 应用部服务集群</h1></a></th>
+</div>
+<table class="table table-striped table-bordered table-hover " id="editable" >
+ <div class="text-center"><button type="button" class="btn btn-success"><h4>Spark Jstorm 集群</h4></button></div>
+    <thead>
+        <tr>
+            <th class="text-center">服务</th>
+            <th class="text-center">访问地址</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for sers in server_list %}
+    {% if sers.stype == 'spark'  %}
+        <tr class="gradeX">
+            <td class="text-center">{{ sers.name }}</td>
+            <td class="text-center"><a href="{{ sers.url }}" target="_blank">{{ sers.url }}</a></td>
+            </td>
+        </tr>
+    {% endif %}
+    {% endfor %}
+    </tbody>
+</table>
+<table class="table table-striped table-bordered table-hover " id="editable" >
+ <caption><h3><font color="#FF0000"><div class="text-center">ELK 集群</h3></font></div></caption>
+    <thead>
+        <tr>
+            <th class="text-center">服务名称</th>
+            <th class="text-center">访问地址</th>
+        </tr>
+    </thead>
+    {% for sers in server_list %}
+    {% if sers.stype == 'es'  %}
+        <tr class="gradeX">
+            <td class="text-center">{{ sers.name }}</td>
+            <td class="text-center"><a href="{{ sers.url }}" target="_blank">{{ sers.url }}</a></td>
+            </td>
+        </tr>
+    {% endif %}
+    {% endfor %}
+{% endblock %}
+</table>
+<!-- jQuery (Bootstrap 插件需要引入) -->
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<!-- 包含了所有编译插件 -->
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

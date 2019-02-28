@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %} DT服务集群 {% endblock %}
+
+{% block content %}
+<!--
+<h1><div class="text" style=" text-align:center;"> DT 应用部服务集群</div></h1>
+-->
+<h1><div class="text"> DT 应用部服务集群</div></h1>
+
+
+<h3><font color="#FF0000">Spark Jstorm 集群</font></h3>
+{% for sers in server_list %}
+{% if sers.stype == 'spark'  %}
+<p>
+<span>{{ sers.name }}:&nbsp;&nbsp;</span>
+<span><a href="{{ sers.url }}" target="_blank">{{ sers.url }}</a></span>
+</p>
+{% endif %}
+{% endfor %}
+
+<h3><font color="#FF0000"> ELK 集群</font></h3>
+{% for sers in server_list %}
+{% if sers.stype == 'es'  %}
+<p>
+<span>{{ sers.name }}:&nbsp;&nbsp;</span>
+<span><a href="{{ sers.url }}" target="_blank">{{ sers.url }}</a></span>
+</p>
+{% endif %}
+{% endfor %}
+{% endblock %}
