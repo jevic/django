@@ -80,16 +80,6 @@ WSGI_APPLICATION = 'dtweb.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'dt_web',
-#         'USER': 'yf_storm',
-#         'PASSWORD': 'BdsY%wgww4#iA5@gpDPuQ',
-#         'HOST': 'sh-cdb-d5qq5gye.sql.tencentcdb.com',
-#         'PORT': '63090',
-#     }
-# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
